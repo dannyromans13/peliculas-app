@@ -26,6 +26,7 @@ export function MovieCard({
       <View style={styles.info}>
         <Text style={styles.title}>{movie.title}</Text>
         <Text>⭐ {movie.vote_average.toFixed(1)}</Text>
+        <Text style={styles.year}>{movie.release_date?.slice(0, 4)}</Text>
         <Pressable onPress={onToggleFavorite}>
           <Text>
             {isFavorite ? "❤️ Quitar de favoritos" : "🤍 Agregar a favoritos"}
@@ -41,4 +42,5 @@ const styles = StyleSheet.create({
   poster: { width: 80, height: 120, borderRadius: 8 },
   info: { flex: 1, justifyContent: "center" },
   title: { fontWeight: "bold", fontSize: 16 },
+  year: { color: '#888', marginBottom: 4 },
 });
