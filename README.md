@@ -1,50 +1,63 @@
-# Welcome to your Expo app 👋
+# 🎬 Explorador de Películas
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Proyecto Programado 2 — Programación para Dispositivos Móviles (TPA-4001)
 
-## Get started
+App móvil desarrollada con React Native (Expo) que consume la API de **The Movie Database (TMDB)** para mostrar películas populares, y permite guardar/eliminar favoritos usando almacenamiento local persistente.
 
-1. Install dependencies
+## Características
 
-   ```bash
-   npm install
-   ```
+- Consumo de API REST (TMDB) con manejo de estados de carga y error
+- Lista de películas populares con póster, título y calificación
+- Guardar y eliminar películas favoritas (persistencia local con AsyncStorage)
+- Pantalla dedicada para ver la lista de favoritos guardados
+- Estado global compartido entre pantallas con Context API
 
-2. Start the app
+## Arquitectura
+peliculas-app/
+├── app/ # Pantallas y navegación (Expo Router)
+│ └── (tabs)/
+│ ├── index.tsx # Pantalla principal: lista de populares
+│ └── explore.tsx # Pantalla de favoritos
+├── services/ # Lógica de red y almacenamiento local
+│ ├── tmdbApi.ts # Consumo de la API de TMDB
+│ └── favoritesStorage.ts # Lectura/escritura en AsyncStorage
+├── context/
+│ └── FavoritesContext.tsx # Estado global de favoritos (Context API)
 
-   ```bash
-   npx expo start
-   ```
 
-In the output, you'll find options to open the app in a
+## Cómo correr el proyecto
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+1. Clonar el repositorio:
 ```bash
-npm run reset-project
+   git clone https://github.com/dannyromans13/peliculas-app.git
+   cd peliculas-app
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. Instalar dependencias:
+```bash
+   npm install
+```
 
-## Learn more
+3. Crear un archivo `.env` en la raíz (usa `.env.example` como plantilla) con tu propia API key de TMDB:
+EXPO_PUBLIC_TMDB_API_KEY=tu_clave_aqui
 
-To learn more about developing your project with Expo, look at the following resources:
+   Puedes obtener una clave gratuita en [themoviedb.org/settings/api](https://www.themoviedb.org/settings/api).
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+4. Iniciar el proyecto:
+```bash
+   npx expo start
+```
 
-## Join the community
+5. Presiona `a` para abrir en un emulador Android, o escanea el QR con la app Expo Go en tu celular.
 
-Join our community of developers creating universal apps.
+## Tecnologías
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- React Native + Expo (SDK 54)
+- TypeScript
+- Expo Router
+- AsyncStorage
+- API de TMDB
+
+## Autor
+
+Danny Romans — Proyecto académico, TEC.
